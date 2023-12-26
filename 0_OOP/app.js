@@ -132,3 +132,43 @@ class Kitty {
 }
 
 const kitty = new Kitty('Pouch');
+
+class CounterGame {
+    constructor(start, btn) {
+        this.counter = start;
+        this.button = btn;
+        this.button.addEventListener('click', () => this.incrementCounter())
+    }
+
+    incrementCounter() {
+        if (this.counter === 0) {
+            console.log(this.counter);
+        }
+        this.counter += 1;
+        console.log(this.counter);
+    }
+}
+
+
+const incrementButton = document.querySelector('#incrementButton');
+const counterGame = new CounterGame(0, incrementButton);
+
+class Timer {
+    constructor() {
+      this.tick = 0;
+      this.timerId = null;
+    }
+  
+    start() {
+      this.timerId = setInterval((function () {
+        console.log(this.tick++);
+      }).bind(this),
+      1000);
+    }
+    
+    stop() {
+        clearInterval(this.timerId);
+    }
+  }
+
+  const t = new Timer();
